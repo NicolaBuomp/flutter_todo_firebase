@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "547436192907",
+    "firebase_url": "https://rn-todofireapp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "rn-todofireapp",
+    "storage_bucket": "rn-todofireapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547436192907:android:505c58c257bce9afa7a08e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_todo_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK7svRQjflcyy1RTQmtXpwLPWJJpbl5ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

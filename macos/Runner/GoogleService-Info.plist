@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyChFCMG2NmryqA0TndxwjLLOs77_HrVmEA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>547436192907</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterTodoFirebase.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>rn-todofireapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rn-todofireapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:547436192907:ios:9268567752881b74a7a08e</string>
+	<key>DATABASE_URL</key>
+	<string>https://rn-todofireapp-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

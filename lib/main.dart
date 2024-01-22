@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import './screens/login_screen.dart';
 import './screens/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import './firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  print(DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -13,14 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        primarySwatch: Colors.blueGrey
-      ),
-      home: HomeScreen(),
+      theme:
+          ThemeData(primaryColor: Colors.blue, primarySwatch: Colors.blueGrey),
+      home: const HomeScreen(),
       routes: {
-        "home": (context) =>  HomeScreen(),
-        "login": (context) => const LoginScreen()
+        "home": (context) => const HomeScreen(),
+        "login": (context) => LoginScreen()
       },
     );
   }
