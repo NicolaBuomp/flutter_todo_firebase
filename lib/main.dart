@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_firebase/screens/todo_screen.dart';
 import './screens/login_screen.dart';
 import './screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         "home": (context) => const HomeScreen(),
-        "login": (context) => LoginScreen()
+        "login": (context) => LoginScreen(),
+        "todo": (context) => TodoScreen()
       },
     );
   }
