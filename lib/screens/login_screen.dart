@@ -23,9 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      if (kDebugMode) {
-        Navigator.pushNamed(context, 'todo');
-      }
+      Navigator.pushNamed(context, 'todo');
     } catch (e) {
       if (kDebugMode) {
         print('Errore durante l\'accesso: $e');

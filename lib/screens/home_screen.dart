@@ -27,6 +27,19 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('Vai al Login'),
             ),
+            SizedBox(height: 20),
+            Text(
+              'Oppure',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Naviga verso la schermata di login
+                Navigator.pushNamed(context, 'register');
+              },
+              child: Text('Registrati'),
+            ),
           ],
         ),
       ),

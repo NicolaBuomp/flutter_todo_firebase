@@ -7,7 +7,6 @@ import './firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  print(DefaultFirebaseOptions.currentPlatform);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -27,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "home": (context) => const HomeScreen(),
         "login": (context) => LoginScreen(),
+        "register": (context) => LoginScreen(),
         "todo": (context) => TodoScreen()
       },
     );
