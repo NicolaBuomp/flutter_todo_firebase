@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../widgets/CustomSnackBar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,12 +24,37 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.pushNamed(context, 'todo');
+      ScaffoldMessenger.of(context).showSnackBar(
+        CustomSnackBar(
+          backgroundColor: Colors.green,
+          text: 'Accesso riuscito!',
+          onAction: () {
+            print('hi');
+          },
+        ),
+      );
+      Navigator.pushNamed(context, 'todos');
+
     } catch (e) {
+      String textMessage = 'Errore';
+      if (e is FirebaseAuthException) {
+        if (e.code == 'firebase_auth/invalid-credential') {
+          textMessage = 'Errore durante l\'accesso: Credenziali errate';
+        }
+      }
+
       if (kDebugMode) {
         print('Errore durante l\'accesso: $e');
       }
-      // Puoi mostrare un messaggio di errore all'utente qui
+      ScaffoldMessenger.of(context).showSnackBar(
+        CustomSnackBar(
+          backgroundColor: Colors.red,
+          text: textMessage,
+          onAction: () {
+            print('hi');
+          },
+        ),
+      );
     }
   }
 

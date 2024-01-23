@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_todo_firebase/widgets/FormattedDateText.dart';
 import 'package:intl/intl.dart';
 
 class TodoScreen extends StatefulWidget {
@@ -21,12 +22,10 @@ class _TodoScreenState extends State<TodoScreen> {
       print('Todo eliminato con successo');
     } catch (e) {
       print('Errore durante l\'eliminazione del todo: $e');
-      // Puoi gestire l'errore qui, ad esempio mostrando un messaggio all'utente
     }
   }
 
   void editTodo() {
-    // Funzione da eseguire quando si preme l'icona di modifica
     print('Modifica todo');
   }
 
@@ -49,37 +48,23 @@ class _TodoScreenState extends State<TodoScreen> {
             return const Text('Errore durante il recupero dei dati');
           }
 
-          // Estrai i documenti dalla snapshot
           List<DocumentSnapshot> todos = snapshot.data!.docs;
 
-          return ListView.builder(
+          return todos.length > 0 ? ListView.builder(
             itemCount: todos.length,
             itemBuilder: (context, index) {
               // Estrai il titolo della todo
-              String title = todos[index]['title'];
-              String dateString = todos[index]['endDate'];
               String todoId = todos[index].id;
 
-              // Converti la stringa in un oggetto DateTime
-              DateTime endDate = DateTime.parse(dateString);
-
-              // Formatta la data come "20/01/2024"
-              String formattedDate = DateFormat('dd/MM/yyyy').format(endDate);
-
-              // Verifica se la data di scadenza è inferiore a quella odierna
-              bool isExpired = endDate.isBefore(DateTime.now());
-
               return ListTile(
-                title: Text(title),
+                title: Text(todos[index]['title']),
                 subtitle: Row(
                   children: [
-                    Text(
-                      'Data di scadenza: $formattedDate',
-                      style: TextStyle(
-                        color: isExpired ? Colors.red : null,
-                      ),
+                    FormattedDateText(
+                      dateTime: todos[index]['endDate'],
+                      showTime: true,
                     ),
-                    const Spacer(), // Aggiunge uno spazio flessibile tra le icone
+                    const Spacer(),
                     GestureDetector(
                       onTap: () => deleteTodo(todoId),
                       child: Icon(
@@ -102,8 +87,15 @@ class _TodoScreenState extends State<TodoScreen> {
                 ),
               );
             },
-          );
+          )
+              : Center(child: Text('Non ci sono Todo da mostrare', style: TextStyle(fontSize: 18)));
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         Navigator.pushNamed(context, 'form');
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
